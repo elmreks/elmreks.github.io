@@ -1,104 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>index</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>elmreks</title>
   <style>
     :root {
-      --bg: #f2efe9;
-      --ink: #111;
-      --muted: #666;
-      --line: #000;
+      --bg: #0a0a0a;
+      --border: #1e1e1e;
+      --text: #c0c0c0;
+      --dim: #484848;
+      --accent: #39d353;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      margin: 0;
-      padding: 24px;
       background: var(--bg);
-      color: var(--ink);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: var(--text);
+      font-family: 'Courier New', Courier, monospace;
+      min-height: 100vh;
     }
 
-    .container {
-      max-width: 900px;
+    .wrap {
+      max-width: 860px;
       margin: 0 auto;
+      padding: 0 48px;
     }
 
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border: 2px solid var(--line);
-      margin-bottom: 12px;
+    /* ── hero ─────────────────────────────── */
+
+    .hero {
+      padding: 64px 0 56px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .meta {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+    .site-id {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--dim);
+      margin-bottom: 40px;
+    }
+
+    .site-id .hl { color: var(--accent); }
+
+    #cube {
+      color: var(--accent);
       font-size: 13px;
+      line-height: 1.35;
+      white-space: pre;
+      user-select: none;
+    }
+
+    .tagline {
+      margin-top: 36px;
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    .tagline .hl { color: var(--text); }
+
+    /* ── project list ─────────────────────── */
+
+    .projects {
+      padding: 52px 0 0;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--dim);
+      text-transform: uppercase;
       margin-bottom: 24px;
     }
 
-    .links {
-      border-top: 2px solid var(--line);
-      padding-top: 16px;
-    }
-
-    .links a {
-      display: block;
+    a.entry {
+      display: grid;
+      grid-template-columns: 36px 1fr 16px;
+      gap: 20px;
+      align-items: center;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
       text-decoration: none;
-      color: var(--ink);
-      font-size: 16px;
-      margin-bottom: 8px;
+      color: inherit;
     }
 
-    .links a:hover {
-      text-decoration: underline;
+    a.entry:last-child { border-bottom: 1px solid var(--border); }
+
+    a.entry:hover .entry-name  { color: var(--accent); }
+    a.entry:hover .entry-arrow { color: var(--accent); transform: translateX(4px); }
+
+    .entry-num   { font-size: 10px; color: var(--dim); padding-top: 2px; }
+    .entry-name  { font-size: 14px; transition: color 0.12s; }
+    .entry-desc  { font-size: 11px; color: var(--dim); margin-top: 3px; }
+    .entry-arrow { font-size: 12px; color: var(--dim); transition: color 0.12s, transform 0.12s; }
+
+    /* ── footer ───────────────────────────── */
+
+    footer {
+      padding: 40px 0 48px;
+      font-size: 10px;
+      color: var(--dim);
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
 
-    <!-- CHANGE IMAGE FILE NAME -->
-    <img src="index.jpg" alt="index image" />
-
-    <div class="meta">
-      <div>
-        image taken: <span id="image-time">2026-02-10 08:30</span>
-      </div>
-      <div>
-        now: <span id="now"></span>
-      </div>
+<div class="hero">
+  <div class="wrap">
+    <div class="site-id">// <span class="hl">elmreks</span>.github.io</div>
+    <pre id="cube"></pre>
+    <div class="tagline">
+      // <span class="hl">human–AI interface</span> · <span class="hl">workflow design</span> · <span class="hl">practical tools</span>
     </div>
-
-    <div class="links">
-      <!-- CHANGE LINKS -->
-      <a href="https://elmreks.github.io/twp/" target="_blank">twp</a>
-      <a href="https://elmreks.github.io/lube.ink/" target="_blank">lube</a>
-      <a href="https://elmreks.github.io/me/" target="_blank">common ground</a>
-      <a href="https://eksrus.com" target="_blank">eksrus</a>
-    </div>
-
   </div>
+</div>
 
-  <script>
-    function updateTime() {
-      const now = new Date();
-      document.getElementById("now").textContent =
-        now.toLocaleDateString() + " " + now.toLocaleTimeString();
+<div class="wrap">
+  <div class="projects">
+    <div class="section-label">// projects</div>
+    <a href="https://elmreks.github.io/wonder/" class="entry">
+      <span class="entry-num">001</span>
+      <div>
+        <div class="entry-name">wonder</div>
+        <div class="entry-desc">field notes on curiosity and beauty</div>
+      </div>
+      <span class="entry-arrow">→</span>
+    </a>
+    <a href="https://elmreks.github.io/me/" class="entry">
+      <span class="entry-num">002</span>
+      <div>
+        <div class="entry-name">me</div>
+        <div class="entry-desc">who I am</div>
+      </div>
+      <span class="entry-arrow">→</span>
+    </a>
+    <a href="https://elmreks.github.io/thetar-demo/" class="entry">
+      <span class="entry-num">003</span>
+      <div>
+        <div class="entry-name">TAR</div>
+        <div class="entry-desc">technical achievement registry</div>
+      </div>
+      <span class="entry-arrow">→</span>
+    </a>
+    <a href="https://elmreks.github.io/code-ethics/" class="entry">
+      <span class="entry-num">004</span>
+      <div>
+        <div class="entry-name">code ethics</div>
+        <div class="entry-desc">bad code, aristotle, and the shape of morality</div>
+      </div>
+      <span class="entry-arrow">→</span>
+    </a>
+    <a href="https://elmreks.github.io/lube.ink/" class="entry">
+      <span class="entry-num">005</span>
+      <div>
+        <div class="entry-name">lube.ink</div>
+        <div class="entry-desc">not really sure...</div>
+      </div>
+      <span class="entry-arrow">→</span>
+    </a>
+    <a href="https://elmreks.github.io/twp/" class="entry">
+      <span class="entry-num">006</span>
+      <div>
+        <div class="entry-name">twp</div>
+        <div class="entry-desc">hippety hoppity</div>
+      </div>
+      <span class="entry-arrow">→</span>
+    </a>
+  </div>  <footer>elmreks — 2025</footer>
+</div>
+
+<script>
+(function () {
+  const el = document.getElementById('cube');
+  const W = 60, H = 18;
+
+  const VERTS = [
+    [-1,-1,-1], [ 1,-1,-1], [ 1, 1,-1], [-1, 1,-1],
+    [-1,-1, 1], [ 1,-1, 1], [ 1, 1, 1], [-1, 1, 1]
+  ];
+
+  const EDGES = [
+    [0,1],[1,2],[2,3],[3,0],   // back face
+    [4,5],[5,6],[6,7],[7,4],   // front face
+    [0,4],[1,5],[2,6],[3,7]    // connecting edges
+  ];
+
+  function rotY([x, y, z], a) {
+    return [x*Math.cos(a) + z*Math.sin(a), y, -x*Math.sin(a) + z*Math.cos(a)];
+  }
+
+  function rotX([x, y, z], a) {
+    return [x, y*Math.cos(a) - z*Math.sin(a), y*Math.sin(a) + z*Math.cos(a)];
+  }
+
+  function project([x, y, z]) {
+    const d = 5 / (5 + z);
+    return [x * d * 2.1 + W / 2, y * d + H / 2];
+  }
+
+  function drawLine(buf, x0, y0, x1, y1) {
+    const dx = x1 - x0, dy = y1 - y0;
+    const n = Math.ceil(Math.max(Math.abs(dx), Math.abs(dy)));
+    if (!n) return;
+    for (let i = 0; i <= n; i++) {
+      const px = Math.round(x0 + dx * i / n);
+      const py = Math.round(y0 + dy * i / n);
+      if (px >= 0 && px < W && py >= 0 && py < H && buf[py][px] === ' ')
+        buf[py][px] = '·';
     }
+  }
 
-    updateTime();
-    setInterval(updateTime, 1000);
-  </script>
+  let t = 0;
+
+  function tick() {
+    const buf = Array.from({ length: H }, () => Array(W).fill(' '));
+    const s = 5.5;
+
+    const pts = VERTS
+      .map(v => rotX(rotY([v[0]*s, v[1]*s, v[2]*s], t), t * 0.55))
+      .map(project);
+
+    EDGES.forEach(([a, b]) =>
+      drawLine(buf, pts[a][0], pts[a][1], pts[b][0], pts[b][1])
+    );
+
+    pts.forEach(([x, y]) => {
+      const px = Math.round(x), py = Math.round(y);
+      if (px >= 0 && px < W && py >= 0 && py < H) buf[py][px] = '+';
+    });
+
+    el.textContent = buf.map(r => r.join('')).join('\n');
+    t += 0.016;
+    requestAnimationFrame(tick);
+  }
+
+  tick();
+})();
+</script>
+
 </body>
 </html>
